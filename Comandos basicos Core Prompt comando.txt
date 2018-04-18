@@ -1,0 +1,31 @@
+
+
+Link Projeto:
+https://dzone.com/articles/crud-operation-with-aspnet-core-mvc-using-visual-s
+
+
+- Criando app aspnet MVC Core
+
+* dotnet new mvc
+* Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design -Version 2.0.3
+
+- Adicionando base de dados
+dotnet restore 
+
+- Adicionar referencia dentro arquivo .csproj
+<ItemGroup>  
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />  
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />  
+  </ItemGroup>  
+  <ItemGroup>  
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />  
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />  
+  </ItemGroup>
+
+- Adicionando scafolld
+dotnet aspnet-codegenerator controller -name EmployeeController -m Employees -dc MvcEmployeeContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+
+- Iniciando migrations
+
+* dotnet ef migrations add InitialCreate
+* dotnet ef database update 
